@@ -1,0 +1,34 @@
+# CONTROLLED VOCABULARY: DATA TYPES
+# Source: IDCARE & Australian Identity Security Guidelines
+
+data_types = [
+    # --- CRITICAL (Replace Immediately) ---
+    "Driver License",
+    "Passport",
+    "Medicare Number",
+    "Tax File Number",
+    "Centrelink CRN",
+    "MyHealth Record",
+
+    # --- FINANCIAL (Monitor Accounts) ---
+    "Credit Card",
+    "Bank Account Number",
+    "Income Data",          # Payslips, Tax Returns
+    "Superannuation Details",
+
+    # --- SENSITIVE (Change Passwords / Be Alert) ---
+    "Passwords",            # Hash or plaintext
+    "Health Records",       # Diagnosis, Scripts
+    "Biometrics",           # FaceID, Fingerprint
+    "Criminal Record",
+    "Security Answers",     # Mothers maiden name, etc
+    "Signatures",
+
+    # --- CONTACT INFO (Spam Risk) ---
+    "Email Address",
+    "Phone Number",
+    "Physical Address",
+    "Date of Birth",
+    "Employment History",
+    "Customer ID"
+]

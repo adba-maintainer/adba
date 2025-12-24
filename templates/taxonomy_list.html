@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+<h1>
+    Index of {% if taxonomy.name == "threat_actor" %}Threat Actors{% elif
+    taxonomy.name == "sector" %}Sectors{% elif taxonomy.name == "year" %}Years{%
+    else %}{{ taxonomy.name | capitalize }}{% endif %}
+</h1>
+
+<ul class="directory-list">
+    {% if taxonomy.name == "year" %} {% for term in terms | reverse %}
+    <li>
+        <a href="{{ term.permalink }}">
+            <strong>{{ term.name }}</strong>
+        </a>
+        <span class="count">({{ term.page_count }} records)</span>
+    </li>
+    {% endfor %} {% else %} {% for term in terms %}
+    <li>
+        <a href="{{ term.permalink }}">
+            <strong>{{ term.name }}</strong>
+        </a>
+        <span class="count">({{ term.page_count }} records)</span>
+    </li>
+    {% endfor %} {% endif %}
+</ul>
+
+{% endblock %}

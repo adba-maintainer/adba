@@ -1,0 +1,20 @@
+base_url = "http://127.0.0.1:1111"
+title = "Australian Data Breach Archive"
+description = "A public record of cybersecurity incidents in Australia."
+default_language = "en"
+build_search_index = true
+
+# THE SCHEMA
+# We define these so Zola generates list pages (e.g., /sector/finance) automatically.
+taxonomies = [
+    {name = "sector", paginate_by = 20},
+    {name = "year", paginate_by = 20},
+    {name = "threat_actor", paginate_by = 20},
+]
+
+[search]
+index_format = "elasticlunr_json"
+
+[extra]
+# Global site variables
+maintainer = "ADBA Project"

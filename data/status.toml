@@ -1,0 +1,23 @@
+# CONTROLLED VOCABULARY: OFFICIAL STATUS
+# Single field that captures the most significant current state
+
+# Priority order (highest to lowest):
+# 1. Legal Action Ongoing (active legal proceedings)
+# 2. Under Investigation (active OAIC/regulatory investigation)
+# 3. Penalties Issued (fines finalized)
+# 4. Settled (legal matters resolved)
+# 5. Investigation Closed (investigation complete)
+# 6. Remediation Complete (organization response complete)
+# 7. Monitoring (organization monitoring)
+# 8. Not Reported (below threshold or not disclosed)
+
+statuses = [
+    "Legal Action Ongoing",
+    "Under Investigation",
+    "Penalties Issued",
+    "Settled",
+    "Investigation Closed",
+    "Remediation Complete",
+    "Monitoring",
+    "Not Reported"
+]

@@ -1,0 +1,22 @@
+# CONTROLLED VOCABULARY: SECTORS
+# Source: OAIC Notifiable Data Breaches Report (Simplified)
+
+list = [
+    "Government",           # Federal, State, Local, Councils
+    "Health",               # Hospitals, GPs, Pharmacy, Insurers
+    "Finance",              # Banks, Super, Lenders, Crypto
+    "Retail",               # Online, Brick & Mortar, Loyalty
+    "Education",            # Universities, Schools, RTOs
+    "Telecommunications",   # ISPs, Mobile Carriers
+    "Real Estate",          # Agencies, Portals
+    "Professional Services",# Law, Accounting, Recruitment
+    "Non-Profit",           # Charities, Unions, Clubs
+    "Technology",           # SaaS, MSPs, Platforms
+    "Transport & Logistics",
+    "Accommodation & Hospitality",
+    "Utility",              # Power, Water, Gas
+    "Construction",
+    "Media",
+    "Manufacturing",
+    "Defence Industry"
+]

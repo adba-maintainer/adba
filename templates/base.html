@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>{% block title %}{{ config.title }}{% endblock %}</title>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <header>
+            <div class="nav-bar-container">
+                <nav class="nav-bar">
+                    <div class="brand-container">
+                        <a href="/" class="brand">
+                            AUS <span>/</span> DATA <span>/</span> BREACH
+                            <span>/</span> ARCHIVE
+                        </a>
+                        <p class="tagline">
+                            A public record of data breaches affecting
+                            Australians
+                        </p>
+                    </div>
+                    <div class="nav-links">
+                        <!-- Clean links, no pipes -->
+                        <a href="/sector">Sectors</a>
+                        <a href="/year">Years</a>
+                        <a href="/threat-actor">Threat Actors</a>
+                        <a href="/about">About</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div
+            class="alert alert-warning"
+            style="
+                max-width: var(--container-max);
+                margin: var(--space-md) auto;
+                padding: var(--space-md) var(--space-lg);
+            "
+        >
+            This is a work in progress. While we strive for accuracy, some
+            breach details may be incomplete or pending verification.
+        </div>
+
+        <main id="main-content">{% block content %}{% endblock %}</main>
+
+        <footer>
+            <div style="display: flex; justify-content: space-between">
+                <span>
+                    &copy; {{ now() | date(format="%Y") }} ADBA Project.
+                </span>
+                <span>
+                    <a href="/legal" style="color: inherit">Legal & Privacy</a>
+                </span>
+            </div>
+        </footer>
+    </body>
+</html>

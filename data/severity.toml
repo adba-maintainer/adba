@@ -1,0 +1,8 @@
+# CONTROLLED VOCABULARY: SEVERITY LEVELS
+# Based on overall impact: data sensitivity + scale
+
+severities = [
+    "Minor",
+    "Serious",
+    "Severe"
+]

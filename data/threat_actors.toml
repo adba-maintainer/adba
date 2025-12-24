@@ -1,0 +1,38 @@
+# CONTROLLED VOCABULARY: THREAT ACTORS
+# Groups confirmed to be actively targetting or historically significant to Australia.
+list = [
+    # --- The Big Players ---
+    "LockBit",              # Prolific RaaS group (all versions)
+    "ALPHV / BlackCat",     # Hit HWL Ebsworth
+    "REvil / Sodinokibi",   # Hit Medibank
+    "ShinyHunters",         # Hit Ticketmaster / Pizza Hut
+    "BianLian",             # Ransomware & Extortion
+    "Medusa",               # Increasing Australian activity
+    "DragonForce",          # Recent activity
+    "Hunters International",# RaaS group
+    "Play",                 # Ransomware
+    "8Base",                # Ransomware
+    "Akira",                # Ransomware
+    "Qilin",                # Hit MediSecure (alleged)
+    "Cl0p",                 # MOVEit exploits
+    "Morpheus",             # Hit Arrotex Pharmaceuticals 2024
+    "BlackBasta",           # Hit Nova Employment 2024
+    "BlackSuit",            # Royal ransomware successor
+    "Abyss",                # Linked to HelloKitty ransomware
+    "Embargo",              # New ransomware group, hit Firstmac 2024
+    "Fog",                  # Ransomware group, hit Ultra Tune 2024
+    "Gnosticplayers",       # Hit Canva (Historical)
+    "RansomHub",            # RaaS group, active 2024
+    "Rhysida",              # RaaS group, active 2024
+    "Meow",                 # Ransomware group, active 2024
+    "Lynx",                 # Ransomware group, active 2024
+    "Kairos",               # Ransomware group, active 2025
+
+    # --- Generic / Fallback ---
+    "Mailto",                # Historical ransomware variant (2020)
+    "Nefilim",               # Historical ransomware variant (2020)
+    "Unverified",           # Claimed on dark web, not confirmed
+    "Unknown",              # Investigation concluded without attribution
+    "Malicious Insider",    # Confirmed internal actor
+    "State Sponsored"       # Confirmed by ASD/Government
+]

@@ -1,0 +1,210 @@
+{% extends "base.html" %} {% block content %}
+<div class="incident-grid">
+    <aside class="sidebar">
+        <div class="card">
+            <div class="meta-block">
+                <label>Date Disclosed</label>
+                <div class="value">
+                    <span class="font-mono">{{ page.date }}</span>
+                </div>
+            </div>
+            <div class="meta-block">
+                <label>Sector</label>
+                <div class="value">
+                    {{ page.taxonomies.sector | join(sep=", ") }}
+                </div>
+            </div>
+            <div class="meta-block">
+                <label>Status</label>
+                <div class="value">{{ page.extra.official_status }}</div>
+            </div>
+
+            {% if page.extra.attributed_to %}
+            <div class="meta-block">
+                <label>Attributed To</label>
+                <div class="value">
+                    {% if page.extra.attributed_to is string %} {{
+                    page.extra.attributed_to }} {% else %} {{
+                    page.extra.attributed_to | join(sep=", ") }} {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="meta-block">
+                <label>Data Types</label>
+                <ul>
+                    {% for type in page.extra.data_types %}
+                    <li>{{ type }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if page.extra.impact %}
+            <div class="meta-block">
+                <label>Impact Metrics</label>
+
+                <div class="impact-metric">
+                    <div class="impact-label">Affected individuals:</div>
+                    <div class="impact-value">
+                        {% if page.extra.impact.affected_individuals > 0 %}
+                        <span class="font-mono"
+                            >{{ page.extra.impact.affected_individuals |
+                            num_format }}</span
+                        >
+                        {% else %} Unknown {% endif %}
+                    </div>
+                    {% if page.extra.impact.individuals_note %}
+                    <div class="impact-note">
+                        {{ page.extra.impact.individuals_note }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% if page.extra.impact.data_volume_gb and
+                page.extra.impact.data_volume_gb > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Data volume:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >{{ page.extra.impact.data_volume_gb }}</span
+                        >
+                        GB
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.record_count and
+                page.extra.impact.record_count > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Record count:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >{{ page.extra.impact.record_count | num_format
+                            }}</span
+                        >
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.ransom_demanded and
+                page.extra.impact.ransom_demanded > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Ransom demanded:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >${{ page.extra.impact.ransom_demanded | num_format
+                            }}</span
+                        >
+                        AUD
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.ransom_paid and
+                page.extra.impact.ransom_paid > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Ransom paid:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >${{ page.extra.impact.ransom_paid | num_format
+                            }}</span
+                        >
+                        AUD
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.financial_cost_total and
+                page.extra.impact.financial_cost_total > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Total financial impact:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >${{ page.extra.impact.financial_cost_total |
+                            num_format }}</span
+                        >
+                        AUD
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.estimated_remediation and
+                page.extra.impact.estimated_remediation > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Estimated remediation:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >${{ page.extra.impact.estimated_remediation |
+                            num_format }}</span
+                        >
+                        AUD
+                    </div>
+                </div>
+                {% endif %} {% if page.extra.impact.downtime_hours and
+                page.extra.impact.downtime_hours > 0 %}
+                <div class="impact-metric">
+                    <div class="impact-label">Downtime:</div>
+                    <div class="impact-value">
+                        <span class="font-mono"
+                            >{{ page.extra.impact.downtime_hours }}</span
+                        >
+                        hours
+                    </div>
+                    {% if page.extra.impact.downtime_note %}
+                    <div class="impact-note">
+                        {{ page.extra.impact.downtime_note }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %} {% if page.extra.legal %}
+            <div class="meta-block">
+                <label>LEGAL PROCEEDINGS</label>
+                <div class="legal-proceedings">
+                    {% for action in page.extra.legal %}
+                    <div class="legal-card">
+                        <div class="legal-type">{{ action.type }}</div>
+                        <div class="legal-status">{{ action.status }}</div>
+                        {% if action.description %}
+                        <div class="legal-description">
+                            {{ action.description }}
+                        </div>
+                        {% endif %} {% if action.url %}
+                        <a
+                            href="{{ action.url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="legal-link"
+                        >
+                            View details →
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </aside>
+
+    <article class="file-content">
+        <h1>{{ page.title }}</h1>
+        {{ page.content | safe }} {% if page.extra.affected_parties %}
+        <div class="affected-block">
+            <h3>Impacted Organizations</h3>
+            <p class="sub-text">
+                The following entities have been confirmed as affected by this
+                specific vendor breach:
+            </p>
+
+            <ul class="victim-list">
+                {% for victim in page.extra.affected_parties %}
+                <li>{{ victim }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="alert alert-info" style="margin-top: var(--space-lg)">
+            <strong>Verification Source:</strong>
+            <a
+                href="{{ page.extra.source_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View original statement
+            </a>
+        </div>
+    </article>
+</div>
+{% endblock %}
