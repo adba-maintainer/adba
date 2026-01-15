@@ -1,4 +1,4 @@
-base_url = "http://127.0.0.1:1111"
+base_url = "https://ausdatabreach.org"
 title = "Australian Data Breach Archive"
 description = "A public record of cybersecurity incidents in Australia."
 default_language = "en"
